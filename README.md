@@ -41,7 +41,7 @@ This project is licensed under the terms of the MIT license. See the [LICENSE](L
 
 ## 💕 Support
 
-If you enjoy using this project and wish to bless everybody's work, please consider giving this project a ⭐! Alternatively, you can always follow my profile to stay up-to-date on new developments.
+If you enjoy using Twilight Toggle and wish to bless everybody's work, please consider giving this project a ⭐! Alternatively, you can always follow my profile to stay up-to-date on new developments.
 
 ## 🙏 Thank You
 
