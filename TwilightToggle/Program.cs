@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
+
 
 namespace TwilightToggle
 {
@@ -11,11 +13,9 @@ namespace TwilightToggle
         static void Main(string[] args)
         {
             TwilightToggle twilightToggle = new TwilightToggle();
-            ChromeHelper chromeHelper = new ChromeHelper();
+            Task.Run(() => twilightToggle.Main("example"));
 
-            twilightToggle.exampleMethod("example 1");
-            chromeHelper.exampleMethod("example 2");
-
+            Console.WriteLine("Reached the end of the program...");
             Console.ReadLine();
         }
     }

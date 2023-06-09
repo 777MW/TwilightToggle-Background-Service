@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace TwilightToggle
 {
     public class TwilightToggle
     {
-        public String exampleMethod(String passedString)
+        public String Main(String passedString)
         {
-            Console.WriteLine("Hello World!! " + passedString);
-            return "passed";
+            ChromeHelper chromeHelper = new ChromeHelper();
+            while (true)
+            {
+                //main variable
+                bool chromeRunState = chromeHelper.GetChromeRunState();
+                Thread.Sleep(1000);
+            }
+            
+            return "reached end of TwilightToggle.Main()";
         }
+
     }
 }
