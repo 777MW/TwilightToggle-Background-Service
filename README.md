@@ -47,4 +47,6 @@ If you like this project, please consider giving it a ⭐ on Github! You can als
 
 Thanks for checking out Twilight Toggle! Let's make the internet a more eye-friendly place. 🌆
 
+##
+
 > *Please note: CIELAB inversion is not a perfect technology. Some elements, including a few per-page-render transparent image types are unable to be inverted with modern web-object inversion techniques. For the few sites where text, logos, or art doesn't render properly please use the System Tray icon.* 

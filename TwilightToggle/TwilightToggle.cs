@@ -18,6 +18,8 @@ namespace TwilightToggle
 
             while (true)
             {
+                //[!]PUT THIS ALL IN A IF, IF CURRENTSYSTEM TIME >= passedUserDayTimeORNightTime && Some check to ensure it only runs once a cycle here
+
                 //main variable
                 chromeRunState = chromeHelper.GetChromeRunState();
                 if (chromeRunState)
