@@ -19,13 +19,13 @@
     ```bash
     git clone https://github.com/Fired/TwilightToggle.git
     ```
-2. **Open the solution** in your favorite C# IDE (we 💜 Visual Studio)!
+2. **Open the solution** in your favorite C# IDE 🟣 Visual Studio works great!
 3. **Build the solution** to get the latest executable file.
 4. **Run TwilightToggle.exe** to load user settings and launch the background process.
 
 ## 📃 How it Works
 
-Twilight Toggle automatically adjusts your entire Chrome browsing experience from day 🌞 to night 🌚 mode using CIELAB-based inversion. You just need to set your desired times, and voila, your eyes will be forever grateful! 🙌 
+Twilight Toggle automatically adjusts your entire Chrome browsing experience to render elements with a day ⚪ or night ⚫ palette using CIELAB-based inversion. All you need to do is set your desired times, and ta-da, your eyes will be forever grateful! 😍
 
 ## 💻 Compatibility
 
@@ -33,7 +33,7 @@ Twilight Toggle is compatible with both Windows 10 and Windows 11. Just make sur
 
 ## 🛠️ Development
 
-Want to contribute? Amazing! 🎉 We would love to see your contributions. Please feel free to open a PR.
+Want to contribute? Amazing! Please submit your contributions by opening a PR.
 
 ## 💼 License
 
@@ -41,13 +41,11 @@ This project is licensed under the terms of the MIT license. See the [LICENSE](L
 
 ## 💕 Support
 
-If you like this project, please consider giving it a ⭐ on Github! You can also follow me on GitHub to stay updated about this project and others.
+If you enjoy this project, please consider blessing it with a ⭐ on Github! You can also follow me to stay updated regarding this project and others.
 
-## 🙏 Thank you
+## 🙏 Thank You
 
-Thanks for checking out Twilight Toggle! Let's make the internet a more eye-friendly place. 🌆
+for checking out Twilight Toggle! Let's make the internet a more eye-friendly place. 🌆
+
 ##
-
-
-
-> *Please note: CIELAB inversion is not a perfect technology. Some elements, including a few per-page-render transparent image types are unable to be inverted with modern web-object inversion techniques. For the few sites where text, logos, or art doesn't render properly please use the System Tray icon.* 
+> *Please note: Some elements, including a few per-page-render transparent image types are unable to be processed with modern CIELAB inversion. For the few sites where text, logos, or art doesn't render properly please utilize the System Tray icon.* 
