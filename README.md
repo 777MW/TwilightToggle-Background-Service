@@ -33,7 +33,7 @@ Twilight Toggle is compatible with both Windows 10 and Windows 11. Just make sur
 
 ## 🛠️ Development
 
-Want to contribute? Amazing! Please submit your contributions by opening a PR.
+Want to contribute? We're excited to see what you're working on! Please submit your contributions by opening a PR.
 
 ## 💼 License
 
@@ -41,7 +41,7 @@ This project is licensed under the terms of the MIT license. See the [LICENSE](L
 
 ## 💕 Support
 
-If you enjoy using this project, please consider blessing it with a ⭐! You can also follow my profile to stay up-to-date on new developments.
+If you enjoy using this project and wish to bless everybody's work, please consider giving this project a ⭐! Alternatively, you can always follow my profile to stay up-to-date on new developments.
 
 ## 🙏 Thank You
 
