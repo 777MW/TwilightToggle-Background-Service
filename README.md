@@ -4,16 +4,16 @@
 
 🕒 This magic switch can be automatically toggled on and off at your desired time of day.  
 
-💻 *Built entirely in C# and compatible with Windows 10 & 11.*
+💻 Built entirely in C# and compatible with Windows 10 & 11.
 
 ![TwilightToggleBanner](./assets/example.png)
 
 ## 🚀 Getting Started
 
 **Download the Latest Release Installer:**
-- Coming soon!
+>Coming soon!
 
--- OR --
+*- OR -*
 
 1. **Clone the repo**: 
     ```bash
@@ -25,7 +25,7 @@
 
 ## 🌙 How it Works
 
-Twilight Toggle automatically adjusts your entire browsing experience from day 🌞 to night 🌚 mode using Chrome's built-in CIELAB-based inversion technology. You just need to set your desired times, and voila, your eyes will be forever grateful! 🙌 
+Twilight Toggle automatically adjusts your entire Chrome browsing experience from day 🌞 to night 🌚 mode using CIELAB-based inversion. You just need to set your desired times, and voila, your eyes will be forever grateful! 🙌 
 
 ## 🖥️ Compatibility
 
