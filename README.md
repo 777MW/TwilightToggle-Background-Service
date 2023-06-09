@@ -6,7 +6,7 @@
 
 💻 *Built entirely in C# and compatible with Windows 10 & 11.*
 
-<!--- UNCOMMENT THIS SOMETIME       ![TwilightToggleBanner](./assets/banner.jpg)         --->
+![TwilightToggleBanner](./assets/example.png)
 
 ## 🚀 Getting Started
 
@@ -25,7 +25,7 @@
 
 ## 🌙 How it Works
 
-Twilight Toggle automatically adjusts your entire browsing experience from day 🌞 to night 🌚 mode depending on your personal time preferences. You just need to set your desired times, and voila, your eyes will be forever grateful! 🙌 
+Twilight Toggle automatically adjusts your entire browsing experience from day 🌞 to night 🌚 mode using Chrome's built-in CIELAB-based inversion technology. You just need to set your desired times, and voila, your eyes will be forever grateful! 🙌 
 
 ## 🖥️ Compatibility
 
