@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace TwilightToggle
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
+            TwilightToggle twilightToggle = new TwilightToggle();
+            ChromeHelper chromeHelper = new ChromeHelper();
+
+            twilightToggle.exampleMethod("example 1");
+            chromeHelper.exampleMethod("example 2");
+
+            Console.ReadLine();
         }
     }
 }
