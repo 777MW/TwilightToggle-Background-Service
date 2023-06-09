@@ -41,7 +41,7 @@ This project is licensed under the terms of the MIT license. See the [LICENSE](L
 
 ## 💕 Support
 
-If you enjoy using this project, please consider blessing it with a ⭐! You can also follow my profile to stay up-to-date.
+If you enjoy using this project, please consider blessing it with a ⭐! You can also follow my profile to stay up-to-date on new developments.
 
 ## 🙏 Thank You
 
