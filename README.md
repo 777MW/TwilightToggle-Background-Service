@@ -25,7 +25,7 @@
 
 ## 📃 How it Works
 
-Twilight Toggle automatically adjusts your entire Chrome browsing experience to render elements with a day ⚪ or night ⚫ palette using CIELAB-based inversion. All you need to do is set your desired times, and ta-da, your eyes will be forever grateful! 😍
+Twilight Toggle adjusts your Chrome browsing experience to render elements with a day ⚪ or night ⚫ palette using CIELAB-based inversion. All you need to do is set your desired day/night times and ta-da! Your eyes will be forever grateful. 🤩
 
 ## 💻 Compatibility
 
@@ -45,7 +45,7 @@ If you enjoy this project, please consider blessing it with a ⭐ on Github! You
 
 ## 🙏 Thank You
 
-for checking out Twilight Toggle! Let's make the internet a more eye-friendly place. 🌆
+For checking out Twilight Toggle! Let's make the internet a more vision-friendly place. 🌆
 
 ##
 > *Please note: Some elements, including a few per-page-render transparent image types are unable to be processed with modern CIELAB inversion. For the few sites where text, logos, or art doesn't render properly please utilize the System Tray icon.* 
