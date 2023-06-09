@@ -15,12 +15,8 @@ namespace TwilightToggle
             {
                 if (Process.GetProcessesByName("Chrome").Length > 0)
                 {
-                    //return true // 1 for Chrome found.
-                    Console.WriteLine("(~) Chrome found...");
                     return true;
                 }
-                //return false // 0 for Chrome not found.
-                Console.WriteLine("(~) Chrome not found!");
                 return false;
             }
             catch

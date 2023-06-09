@@ -13,7 +13,7 @@ namespace TwilightToggle
         static void Main(string[] args)
         {
             TwilightToggle twilightToggle = new TwilightToggle();
-            Task.Run(() => twilightToggle.Main("example"));
+            twilightToggle.Main("example");
 
             Console.WriteLine("Reached the end of the program...");
             Console.ReadLine();
