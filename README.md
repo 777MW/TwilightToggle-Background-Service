@@ -1,9 +1,10 @@
 # 🌜 Twilight Toggle 🌞
 
-Twilight Toggle is an all-page light/dark mode switcher for Google Chrome! This magic switch can be automatically toggled on and off at your desired time of day. 🕒 
-*Built in C# and compatible with Windows 10 & 11. 💻*
+🌗 Twilight Toggle is a light/dark mode switcher for all Google Chrome sites! 
+🕒 This magic switch can be automatically toggled on and off at your desired time of day.  
+💻 *Built entirely in C# and compatible with Windows 10 & 11.*
 
-![TwilightToggleBanner](./assets/banner.jpg)
+<!--- UNCOMMENT THIS SOMETIME       ![TwilightToggleBanner](./assets/banner.jpg)         --->
 
 ## 🚀 Getting Started
 
