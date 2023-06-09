@@ -10,7 +10,7 @@ namespace TwilightToggle
 {
     public class TwilightToggle
     {
-        public String Main(String passedString)
+        public String Main(String passedUserDayTime, String passedUserNightTime)
         {
             ChromeHelper chromeHelper = new ChromeHelper();
             FileHelper fileHelper = new FileHelper();
@@ -39,6 +39,7 @@ namespace TwilightToggle
                         if (readLocalState.Contains("enable-force-dark"))
                         {
                             Console.WriteLine("[o] enable-force-dark setting found. Attempting write to Local State file...");
+                            //find substring "enable-force-dark", jump x amount of chars to number flag, create two substrings, 0-->firstCharOfFlag        then    after_flag-->endOfString .     Finally, do Substring1 + desiredFlag + Substring2 and write to Local State
                         }
                         else
                         {
