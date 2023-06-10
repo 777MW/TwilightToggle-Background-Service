@@ -16,5 +16,10 @@ namespace TwilightToggle
             String readText = File.ReadAllText(fileLocation);
             return readText;
         }
+        /*public String readFileLineToString(String fileLocation)
+        {
+            String readText = File.(fileLocation, 1);
+            return readText;
+        }*/
     }
 }

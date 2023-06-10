@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace TwilightToggle
 {
@@ -20,6 +21,9 @@ namespace TwilightToggle
             string localStateLocation = "";
             string readLocalState = "";
             string localStateLocator = "enable-force-dark@";
+
+            string readUserDayTime = "";
+            string readUserNightTime = "";
 
             try
             {
@@ -38,7 +42,10 @@ namespace TwilightToggle
 
             while (true)
             {
-                //[!]PUT THIS ALL IN A IF, IF CURRENTSYSTEM TIME >= passedUserDayTimeORNightTime && Some check to ensure it only runs once a cycle here
+                DateTime currentDateTime = DateTime.Now;
+                string currentDateTimeString = currentDateTime.ToString();
+                int currentDateTimeHourInt = currentDateTime.Hour;
+                //some date time logic if statement here to nest everything below into..
 
                 //main variable
                 chromeRunState = chromeHelper.GetChromeRunState();
@@ -50,6 +57,7 @@ namespace TwilightToggle
                     readLocalState = fileHelper.readFileToString(localStateLocation);
                     //read LastState.config here
                     //-logic to see if its time for the user to close chrome so TT can write
+                    //popup reminding user to close chrome
                 }
 
                 else
@@ -57,23 +65,30 @@ namespace TwilightToggle
                     try
                     {
                         
-                        if (readLocalState.Contains("enable-force-dark"))
+                        if (readLocalState.Contains(localStateLocator))
                         {
-                            Console.WriteLine("[o] enable-force-dark found in Local State. Attempting write to user's Local State file...");
-
+                            Console.WriteLine("Attempting write to user's Local State file...");
                             //find substring "enable-force-dark", jump x amount of chars to number flag, create two substrings, 0-->firstCharOfFlag        then    after_flag-->endOfString .     Finally, do Substring1 + desiredFlag + Substring2 and write to Local State
 
-                            int identifierPosition = readLocalState.LastIndexOf("enable-force-dark@");
-                            Console.WriteLine("Position: " + readLocalState.LastIndexOf("enable-force-dark@"));
+                            int identifierPosition = readLocalState.LastIndexOf(localStateLocator);
+                            //Console.WriteLine("Position: " + readLocalState.LastIndexOf("enable-force-dark@"));
                             
-                            String writeLocalStatePartOne = (readLocalState.Substring(0, identifierPosition + 18));
-                            Console.WriteLine(writeLocalStatePartOne);
-                            Console.WriteLine(readLocalState.Length);
-                            //Console.WriteLine(readLocalState.Substring(identifierPosition + 18, readLocalState.Length - 1));
+                            string writeLocalStatePartOne = (readLocalState.Substring(0, identifierPosition + 18));
+                            //Console.WriteLine(writeLocalStatePartOne);
 
+                            string writeLocalStatePartTwo = readLocalState.Substring(writeLocalStatePartOne.Length + 1, readLocalState.Length - (writeLocalStatePartOne.Length + 1));
+                            //Console.WriteLine(writeLocalStatePartTwo);
 
-                            //after successful write to file, change sleepyTime so the thread now reads every 4.5 seconds instead of every 1000ms
-                            sleepyTime = 4500;
+                            string writeLocalStateFinal = writeLocalStatePartOne + "3" + writeLocalStatePartTwo;
+
+                            //write to user's Local State
+                            using (StreamWriter outputFile = new StreamWriter(localStateLocation))
+                            {
+                                outputFile.WriteLine(writeLocalStateFinal);
+                            }
+
+                            //after successful write to file, change sleepyTime so the thread now waits for 45 seconds at the end instead of only 1000ms
+                            sleepyTime = 45000;
                         }
                         else
                         {
