@@ -11,10 +11,9 @@ namespace TwilightToggle
 {
     public class FileHelper
     {
-        public String readFileReturnString(String fileLocation)
+        public String readFileToString(String fileLocation)
         {
             String readText = File.ReadAllText(fileLocation);
-            Console.WriteLine(readText);
             return readText;
         }
     }
