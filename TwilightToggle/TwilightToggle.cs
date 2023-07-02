@@ -59,7 +59,7 @@ namespace TwilightToggle
                     //-logic to see if its time for the user to close chrome so TT can write
                     //popup reminding user to close chrome
                 }
-
+                
                 else
                 {
                     try
