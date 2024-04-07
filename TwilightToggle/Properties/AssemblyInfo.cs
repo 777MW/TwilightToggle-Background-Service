@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("TwilightToggle")]
 [assembly: AssemblyDescription("Toggle darkmode experiment flags via editing user's Chrome Local Data")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("www.max.works")]
 [assembly: AssemblyProduct("TwilightToggle")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]

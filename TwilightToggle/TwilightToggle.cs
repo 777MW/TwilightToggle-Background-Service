@@ -11,12 +11,13 @@ namespace TwilightToggle
 {
     public class TwilightToggle
     {
-        public String Main(String passedUserDayTime, String passedUserNightTime)
+        public String Main(int[] passedUserAMTimes, String passedUserNightTime)
         {
+            Console.WriteLine("Compiled passed user AM Time: " + passedUserAMTimes[0] + ":" + passedUserAMTimes[1] + ".");
             ChromeHelper chromeHelper = new ChromeHelper();
             FileHelper fileHelper = new FileHelper();
             bool chromeRunState;
-            int sleepyTime = 1000;
+            int sleepyTime = 2000;
             string userName = "";
             string localStateLocation = "";
             string readLocalState = "";
@@ -25,27 +26,38 @@ namespace TwilightToggle
             string readUserDayTime = "";
             string readUserNightTime = "";
 
-            try
-            {
-                //gets the current Windows user
-                userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1]; ;
-
-                localStateLocation = "C:/Users/" + userName + "/AppData/Local/Google/Chrome/User Data/Local State";
-                Console.WriteLine("Current user Local State directory: " + localStateLocation);
-
-                readLocalState = fileHelper.readFileToString(localStateLocation);
-            }
-            catch(Exception e) 
-            {
-                Console.WriteLine(e.ToString());
-            }
-
             while (true)
             {
+                try
+                {
+                    //gets the current Windows user
+                    userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1]; ;
+
+                    localStateLocation = "C:/Users/" + userName + "/AppData/Local/Google/Chrome/User Data/Local State";
+                    Console.WriteLine("Current user Local State directory: " + localStateLocation);
+
+                    readLocalState = fileHelper.readFileToString(localStateLocation);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Error!!! Couldn't get local user's chrome directory. :(");
+                    Console.WriteLine(e.ToString());
+                    Console.WriteLine("Time to go to sleep for 5 seconds...");
+                    Thread.Sleep(sleepyTime);
+                }
+
                 DateTime currentDateTime = DateTime.Now;
                 string currentDateTimeString = currentDateTime.ToString();
                 int currentDateTimeHourInt = currentDateTime.Hour;
+                int currentDateTimeMinuteInt = currentDateTime.Minute;
                 //some date time logic if statement here to nest everything below into..
+                Console.WriteLine("Current hour integer is: " + currentDateTimeHourInt);
+                Console.WriteLine("Current minute integer is: " + currentDateTimeMinuteInt);
+                Console.WriteLine();
+
+                //output the current user System DateTime into Console
+                Console.Write("The current time is: ");
+                Console.WriteLine(currentDateTimeString);
 
                 //main variable
                 chromeRunState = chromeHelper.GetChromeRunState();
@@ -89,6 +101,8 @@ namespace TwilightToggle
 
                             //after successful write to file, change sleepyTime so the thread now waits for 45 seconds at the end instead of only 1000ms
                             sleepyTime = 45000;
+                            Console.WriteLine("Changed sleepy time to: " + sleepyTime + " milliseconds.");
+
                         }
                         else
                         {
