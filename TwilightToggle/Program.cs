@@ -18,11 +18,15 @@ namespace TwilightToggle
 
             //convert read in user AM and PM to Arrays
             //int[] userAMTimes = [HourInt, MinuteInt]
+            //8:30AM
             int[] userAMTimes = { 8, 30 };
+
+            //8:00PM
+            int[] userPMTimes = { 20, 0 };
 
 
             //use in the method below
-            twilightToggle.Main(userAMTimes, "example2");
+            twilightToggle.Main(userAMTimes, userPMTimes);
 
             Console.WriteLine("Reached the end of the program...");
             Console.ReadLine();

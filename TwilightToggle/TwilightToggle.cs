@@ -11,9 +11,10 @@ namespace TwilightToggle
 {
     public class TwilightToggle
     {
-        public String Main(int[] passedUserAMTimes, String passedUserNightTime)
+        public String Main(int[] passedUserAMTimes, int[] passedUserPMTimes)
         {
             Console.WriteLine("Compiled passed user AM Time: " + passedUserAMTimes[0] + ":" + passedUserAMTimes[1] + ".");
+            Console.WriteLine("Compiled passed user PM Time: " + passedUserPMTimes[0] + ":" + passedUserPMTimes[1] + ".");
             ChromeHelper chromeHelper = new ChromeHelper();
             FileHelper fileHelper = new FileHelper();
             bool chromeRunState;
@@ -22,6 +23,9 @@ namespace TwilightToggle
             string localStateLocation = "";
             string readLocalState = "";
             string localStateLocator = "enable-force-dark@";
+
+            string darkModeFlag = "3";
+            string lightModeFlag = "9";
 
             string readUserDayTime = "";
             string readUserNightTime = "";
@@ -63,50 +67,85 @@ namespace TwilightToggle
                 chromeRunState = chromeHelper.GetChromeRunState();
                 if (chromeRunState)
                 {
-                    Console.WriteLine("Chrome is currently running...");
-                    DateTime now = DateTime.Now;
-                    Console.WriteLine(now);
+                    Console.WriteLine("Chrome is currently running at " + currentDateTimeString + "\n");
                     readLocalState = fileHelper.readFileToString(localStateLocation);
                     //read LastState.config here
                     //-logic to see if its time for the user to close chrome so TT can write
                     //popup reminding user to close chrome
                 }
                 
-                else
+                else if (!chromeRunState)
                 {
                     try
                     {
-                        
-                        if (readLocalState.Contains(localStateLocator))
+                        //if it is daytime logic
+                        if (passedUserAMTimes[0] <= currentDateTimeHourInt & currentDateTimeHourInt <= passedUserPMTimes[0])
                         {
-                            Console.WriteLine("Attempting write to user's Local State file...");
-                            //find substring "enable-force-dark", jump x amount of chars to number flag, create two substrings, 0-->firstCharOfFlag        then    after_flag-->endOfString .     Finally, do Substring1 + desiredFlag + Substring2 and write to Local State
-
-                            int identifierPosition = readLocalState.LastIndexOf(localStateLocator);
-                            //Console.WriteLine("Position: " + readLocalState.LastIndexOf("enable-force-dark@"));
-                            
-                            string writeLocalStatePartOne = (readLocalState.Substring(0, identifierPosition + 18));
-                            //Console.WriteLine(writeLocalStatePartOne);
-
-                            string writeLocalStatePartTwo = readLocalState.Substring(writeLocalStatePartOne.Length + 1, readLocalState.Length - (writeLocalStatePartOne.Length + 1));
-                            //Console.WriteLine(writeLocalStatePartTwo);
-
-                            string writeLocalStateFinal = writeLocalStatePartOne + "3" + writeLocalStatePartTwo;
-
-                            //write to user's Local State
-                            using (StreamWriter outputFile = new StreamWriter(localStateLocation))
+                            Console.WriteLine("Daytime detected! Writing disabled flag.");
+                            // TODO: see if user is already in daytime mode here
+                            if (readLocalState.Contains(localStateLocator))
                             {
-                                outputFile.WriteLine(writeLocalStateFinal);
+                                Console.WriteLine("Attempting write to user's Local State file...");
+                                //find substring "enable-force-dark", jump x amount of chars to number flag, create two substrings, 0-->firstCharOfFlag        then    after_flag-->endOfString .     Finally, do Substring1 + desiredFlag + Substring2 and write to Local State
+
+                                int identifierPosition = readLocalState.LastIndexOf(localStateLocator);
+                                //Console.WriteLine("Position: " + readLocalState.LastIndexOf("enable-force-dark@"));
+
+                                string writeLocalStatePartOne = (readLocalState.Substring(0, identifierPosition + 18));
+                                //Console.WriteLine(writeLocalStatePartOne);
+
+                                string writeLocalStatePartTwo = readLocalState.Substring(writeLocalStatePartOne.Length + 1, readLocalState.Length - (writeLocalStatePartOne.Length + 1));
+                                //Console.WriteLine(writeLocalStatePartTwo);
+
+                                string writeLocalStateFinal = writeLocalStatePartOne + lightModeFlag + writeLocalStatePartTwo;
+
+                                //write to user's Local State
+                                using (StreamWriter outputFile = new StreamWriter(localStateLocation))
+                                {
+                                    outputFile.WriteLine(writeLocalStateFinal);
+                                    Console.WriteLine("Write succeeded! Wrote light mode flag value of " + lightModeFlag + ".");
+                                }
+
+                                //after successful write to file, change sleepyTime so the thread now waits for 45 seconds at the end instead of only 1000ms
+                                sleepyTime = 45000;
+                                Console.WriteLine("Changed sleepy time to: " + sleepyTime + " milliseconds.");
                             }
 
-                            //after successful write to file, change sleepyTime so the thread now waits for 45 seconds at the end instead of only 1000ms
-                            sleepyTime = 45000;
-                            Console.WriteLine("Changed sleepy time to: " + sleepyTime + " milliseconds.");
+                            
 
-                        }
+                            }
                         else
                         {
-                            Console.WriteLine("[!] FATAL! Could NOT find enable-force-dark flag in user's Local State : " + localStateLocation + " ! Skipping write to Local State file!!!");
+                            Console.WriteLine("It's not daytime! Writing darkmode flag.");
+
+                            if (readLocalState.Contains(localStateLocator))
+                            {
+                                Console.WriteLine("Attempting write to user's Local State file...");
+                                //find substring "enable-force-dark", jump x amount of chars to number flag, create two substrings, 0-->firstCharOfFlag        then    after_flag-->endOfString .     Finally, do Substring1 + desiredFlag + Substring2 and write to Local State
+
+                                int identifierPosition = readLocalState.LastIndexOf(localStateLocator);
+                                //Console.WriteLine("Position: " + readLocalState.LastIndexOf("enable-force-dark@"));
+
+                                string writeLocalStatePartOne = (readLocalState.Substring(0, identifierPosition + 18));
+                                //Console.WriteLine(writeLocalStatePartOne);
+
+                                string writeLocalStatePartTwo = readLocalState.Substring(writeLocalStatePartOne.Length + 1, readLocalState.Length - (writeLocalStatePartOne.Length + 1));
+                                //Console.WriteLine(writeLocalStatePartTwo);
+
+                                string writeLocalStateFinal = writeLocalStatePartOne + darkModeFlag + writeLocalStatePartTwo;
+
+                                //write to user's Local State
+                                using (StreamWriter outputFile = new StreamWriter(localStateLocation))
+                                {
+                                    outputFile.WriteLine(writeLocalStateFinal);
+                                    Console.WriteLine("Write succeeded! Wrote dark mode flag value of " + darkModeFlag + ".");
+                                }
+
+                                //after successful write to file, change sleepyTime so the thread now waits for 45 seconds at the end instead of only 1000ms
+                                sleepyTime = 45000;
+                                Console.WriteLine("Changed sleepy time to: " + sleepyTime + " milliseconds.");
+                            }
+
                         }
                     }
                     catch (Exception e)
@@ -115,6 +154,8 @@ namespace TwilightToggle
                         Console.WriteLine(e);
                     }
                 }
+                Console.WriteLine("Reached end of logic. Waiting " + sleepyTime + " milliseconds.");
+                Console.WriteLine("-----------------------------------------------------");
                 Thread.Sleep(sleepyTime);
             }
             
