@@ -1,6 +1,6 @@
 # ❗ This is the Background Service-only edition of TwilightToggle. 
 # ℹ️ For the full up-to-date TwilightToggle application, including a full Windows system tray implementation, please visit the following repository:
-# ✅ _here_
+✅ _here_
 
 ### 🌜 Twilight Toggle - Windows Background Service Edition 🌞
 
