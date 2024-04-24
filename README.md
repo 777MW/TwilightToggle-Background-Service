@@ -1,4 +1,4 @@
-🌜 Twilight Toggle - Windows Background Service Edition 🌞
+### 🌜 Twilight Toggle - Windows Background Service Edition 🌞
 
 # ℹ️ This is the Background Service-only edition of TwilightToggle. 
 ## For the full up-to-date TwilightToggle application, including a handbuilt Windows system tray implementation, please visit the following repository:
@@ -6,7 +6,7 @@
 ### _here_
 
 
-
+###
 🌗 Twilight Toggle is a light/dark mode switcher for all websites you visit on **Google Chrome**! 
 
 🕒 This magic switch can automatically be toggled on and off at your desired time of day.  
